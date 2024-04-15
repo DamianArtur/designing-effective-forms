@@ -49,6 +49,9 @@ function getCountryCode(countryName) {
     })
     .then(data => {        
         const countryCode = data[0].idd.root + data[0].idd.suffixes.join("")
+        console.log(countryCode);
+        const countryCodeForm = document.getElementById('countryCode');
+        countryCodeForm.value = countryCode;
         // TODO inject countryCode to form
     })
     .catch(error => {
