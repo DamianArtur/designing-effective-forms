@@ -38,24 +38,25 @@
                 <label for="street" class="form-label">Ulica</label>
                 <input type="text" class="form-control" id="street" placeholder="Wpisz ulicę" required>
             </div>
-            <div class="mb-3">
-                <label for="country" class="form-label">Kraj</label>
-                <select class="form-select" id="country" required>
-                    <option value="">Wybierz kraj</option>
-                    <!-- Options will be filled by JavaScript -->
-                </select>
-            </div>
             <div class="row mb-3">
-                <label for="phoneNumber" class="form-label">Numer telefonu komórkowego</label>
-                <div class="input-group">
-                    <select class="form-select" id="countryCode" aria-label="Wybierz numer kierunkowy">
-                        <option selected>Wybierz...</option>
-                        <option value="+48">+48 (Polska)</option>
-                        <option value="+1">+1 (Stany Zjednoczone)</option>
-                        <!-- Dodaj więcej opcji, jeśli jest to potrzebne -->
+                <div class="col">
+                    <label for="country" class="form-label">Kraj</label>
+                    <select class="form-select" id="country" required>
+                        <option value="">Wybierz kraj</option>
+                        <!-- Options will be filled by JavaScript -->
                     </select>
-                    <input type="text" class="form-control" id="phoneNumber" placeholder="Wpisz numer komórkowy"
-                        required>
+                </div>
+                <div class="col">
+                    <label for="phoneNumber" class="form-label">Numer telefonu komórkowego</label>
+                    <div class="input-group">
+                        <select class="form-select" id="countryCode" aria-label="Wybierz numer kierunkowy">
+                            <option value="+48">+48 (Polska)</option>
+                            <option value="+1">+1 (Stany Zjednoczone)</option>
+                            <!-- Dodaj więcej opcji, jeśli jest to potrzebne -->
+                        </select>
+                        <input type="text" class="form-control" id="phoneNumber" placeholder="Wpisz numer komórkowy"
+                            required>
+                    </div>
                 </div>
             </div>
             <div class="mb-3">
