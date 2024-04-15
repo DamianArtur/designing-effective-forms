@@ -24,6 +24,26 @@ async function fetchAndFillCountries() {
     }
 }
 
+function setVatNumber(countryName) {
+    const apiUrl = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+
+    fetch(apiUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Błąd pobierania danych');
+        }
+        return response.json();
+    })
+    .then(data => {        
+        const vatNumber = data[0].cca2; // Use the country's abbreviation
+        const vatNumberForm = document.getElementById('vatNumber');
+        vatNumberForm.value = vatNumber;
+    })
+    .catch(error => {
+        console.error('Wystąpił błąd:', error);
+    });
+}
+
 function getCountryByIP() {
     fetch('https://get.geojs.io/v1/ip/geo.json')
         .then(response => response.json())
@@ -31,6 +51,7 @@ function getCountryByIP() {
             const country = data.country;
             $('#country').val(country).trigger('change');
             getCountryCode(country);
+            setVatNumber(country);
         })
         .catch(error => {
             console.error('Błąd pobierania danych z serwera GeoJS:', error);
@@ -69,6 +90,10 @@ function getCountryCode(countryName) {
     $('#country').select2({
         placeholder: 'Wybierz kraj',
         allowClear: true
+    });
+    $('#country').on('select2:select', function (e) {
+        var data = e.params.data;
+        setVatNumber(data.id);
     });
     
 })()
