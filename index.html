@@ -72,24 +72,37 @@
                         <input type="text" class="form-control" id="zipCode" placeholder="Wpisz kod pocztowy" required>
                     </div>
                 </div>                
-            <div class="mb-3">
-                <label for="shippingMethod" class="form-label">Rodzaj przesyłki</label>
-                <select class="form-select" id="shippingMethod" required>
-                    <option value="">Wybierz rodzaj przesyłki</option>
-                    <option value="DPD">DPD</option>
-                    <option value="InPost">InPost</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="paymentMethod" class="form-label">Rodzaj płatności</label>
-                <select class="form-select" id="paymentMethod" required>
-                    <option value="">Wybierz rodzaj płatności</option>
-                    <option value="karta">Karta</option>
-                    <option value="blik">BLIK</option>
-                    <option value="pośrednik">Pośrednik płatności</option>
-                </select>
-            </div>
-
+                <div class="mb-3">
+                    <label class="form-label">Rodzaj przesyłki</label>
+                    <div id="shippingMethod" required style="display: flex; justify-content: space-between;">
+                        <div style="margin-right: 10px;">
+                            <input type="radio" id="DPD" name="shippingMethod" value="DPD">
+                            <label for="DPD">DPD</label>
+                        </div>
+                        <div style="margin-right: 10px;">
+                            <input type="radio" id="InPost" name="shippingMethod" value="InPost">
+                            <label for="InPost">InPost</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Rodzaj płatności</label>
+                    <div id="paymentMethod" required style="display: flex; justify-content: space-between;">
+                        <div style="margin-right: 10px;">
+                            <input type="radio" id="karta" name="paymentMethod" value="karta">
+                            <label for="karta">Karta</label>
+                        </div>
+                        <div style="margin-right: 10px;">
+                            <input type="radio" id="blik" name="paymentMethod" value="blik">
+                            <label for="blik">BLIK</label>
+                        </div>
+                        <div style="margin-right: 10px;">
+                            <input type="radio" id="pośrednik" name="paymentMethod" value="pośrednik">
+                            <label for="pośrednik">Pośrednik płatności</label>
+                        </div>
+                    </div>
+                </div>                              
+                
             <!-- Dodatkowe pola, np. dane do faktury -->
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="vatUE">
