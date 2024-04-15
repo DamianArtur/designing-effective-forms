@@ -29,8 +29,7 @@ function getCountryByIP() {
         .then(response => response.json())
         .then(data => {
             const country = data.country;
-            const countryInput = document.getElementById('country');
-            countryInput.value = country;
+            $('#country').val(country).trigger('change');
             getCountryCode(country);
         })
         .catch(error => {
@@ -64,4 +63,9 @@ function getCountryCode(countryName) {
 
     fetchAndFillCountries();
     getCountryByIP();
+    $('#country').select2({
+        placeholder: 'Wybierz kraj',
+        allowClear: true
+    });
+    
 })()
