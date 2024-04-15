@@ -29,7 +29,9 @@ function getCountryByIP() {
         .then(response => response.json())
         .then(data => {
             const country = data.country;
-            // TODO inject country to form and call getCountryCode(country) function
+            const countryInput = document.getElementById('country');
+            countryInput.value = country;
+            getCountryCode(country);
         })
         .catch(error => {
             console.error('Błąd pobierania danych z serwera GeoJS:', error);
@@ -61,4 +63,5 @@ function getCountryCode(countryName) {
     document.addEventListener('click', handleClick);
 
     fetchAndFillCountries();
+    getCountryByIP();
 })()
