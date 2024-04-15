@@ -87,13 +87,26 @@ function getCountryCode(countryName) {
 
     fetchAndFillCountries();
     getCountryByIP();
+
     $('#country').select2({
         placeholder: 'Wybierz kraj',
         allowClear: true
     });
+
     $('#country').on('select2:select', function (e) {
         var data = e.params.data;
         setVatNumber(data.id);
     });
+
+    $(document).ready(function() {
+        $('#firstName, #lastName, #street, #zipCode, #city').on('input', function() {
+            var firstName = $('#firstName').val();
+            var lastName = $('#lastName').val();
+            var street = $('#street').val();
+            var zipCode = $('#zipCode').val();
+            var city = $('#city').val();
     
+            $('#invoiceData').val(firstName + ' ' + lastName + ',\nul. ' + street + ',\n' + zipCode + ' ' + city);
+        });
+    });
 })()
